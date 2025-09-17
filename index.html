@@ -1,164 +1,156 @@
 <!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DAWO</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
-  <style>
-    :root {
-      --groen-100: #39870C;
-      --groen-75: #6AA549;
-    }
-
-    /* Rijkshuisstijl fonts */
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAWO Page</title>
+<style>
     @font-face {
-      font-family: 'ROsanswebtextregular';
-      src: url('ROsanswebtextregular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
+        font-family: 'ROsanswebtextbold';
+        src: url('ROsanswebtextbold.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
     }
 
-    @font-face {
-      font-family: 'ROsanswebtextbold';
-      src: url('ROsanswebtextbold.woff') format('woff');
-      font-weight: bold;
-      font-style: normal;
+    body, html {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        font-family: 'ROsanswebtextbold', Arial, sans-serif;
+        width: 100%;
     }
 
-    /* Body font setup */
-    body {
-      font-family: 'ROsanswebtextregular', monospace;
-      color: #1a1a1a;
-      margin: 0;
-      padding: 0;
+    section {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
     }
 
-    /* Headings (Bold) */
-    h1, h2, h3, h4, h5, h6, strong {
-      font-family: 'ROsanswebtextbold', monospace;
+    #section1 {
+        background-color: #d2deeb;
+        color: #0d4074;
+        padding-top: 120px;
     }
 
-    /* Hero section title styles */
-    .hero-title {
-      font-family: 'ROsanswebtextbold', monospace;
-      font-size: 4rem; /* Adjusted font size */
-      color: #ffffff;
-      font-weight: bold;
-      line-height: 1;
-      letter-spacing: -0.05em;
+    #section2 {
+        background-color: white;
+        color: #0d4074;
+        padding-top: 100px;
+        max-width: 900px;
+        margin: 0 auto;
     }
 
-    .hero-subtitle {
-      font-family: 'ROsanswebtextbold', monospace;
-      font-size: 2rem;
-      color: #ffffff;
-      font-weight: bold;
+    #logo {
+        width: 10vw;
+        max-width: 60px;
+        height: auto;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    .hero-text {
-      font-family: 'ROsanswebtextregular', monospace;
-      font-size: 1.125rem;
-      color: #ffffff;
-      margin-top: 1rem;
-      line-height: 1.75;
+    .section-title {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        margin-top: 90px;
     }
 
-    /* Link styling for navigation items */
-    .link-heading {
-      font-family: 'ROsanswebtextbold', monospace;
-      font-size: 2rem;
-      color: #39870C; /* Green color */
-      font-weight: bold;
-      text-decoration: none;
+    .section-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: justify;
+        margin: 0 20px;
     }
 
-    .link-text {
-      font-family: 'ROsanswebtextregular', monospace;
-      font-size: 1rem;
-      color: #000000;
-      line-height: 1.5;
+    .video-container {
+        position: relative;
+        width: clamp(300px, 90%, 900px);
+        aspect-ratio: 16 / 9;
+        margin: 60px auto 20px auto;
     }
 
-  </style>
+    .video-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border: none;
+    }
+
+    .round-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        background-color: #7f98b1;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .round-button:hover {
+        background-color: #b6c4d3;
+    }
+
+    #arrowDown {
+        position: absolute;
+        bottom: 30px;
+    }
+
+    #arrowUp {
+        position: absolute;
+        top: 30px;
+    }
+
+    @media (max-width: 768px) {
+        .video-container {
+            width: 100vw;
+            margin: 60px 0 20px 0;
+        }
+        .section-text {
+            margin: 0 10px;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px) {
+        #arrowDown {
+            bottom: -10px;
+        }
+        #arrowUp {
+            top: -10px;
+        }
+    }
+</style>
 </head>
 <body>
 
-<!-- Hero Section -->
-<section class="relative w-full flex flex-col md:flex-row h-auto md:h-screen overflow-hidden">
-
-  <!-- LEFT SIDE (Green) -->
-  <div
-    id="leftSideContent"
-    class="flex w-full md:w-1/2 bg-[var(--groen-100)] flex-col items-center justify-center px-12 text-center md:items-end md:text-left min-h-[500px] md:h-full"
-  >
-    <div class="max-w-[17rem]">
-      <h1 class="hero-title">DAWO</h1>
-      <p class="hero-subtitle">Digitaal Autonome Werkomgeving Overheid</p>
-      <p class="hero-text">
-        Digitale autonomie begint niet bij technologie, maar bij de moed om het anders te durven doen.
-      </p>
+<section id="section1">
+    <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Logo_rijksoverheid.svg/800px-Logo_rijksoverheid.svg.png" alt="Logo">
+    <div class="section-title">Digitale Autonome Werkomgeving Overheid</div>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/_PDOGfX_Rfs" title="DAWO Video" allowfullscreen=""></iframe>
     </div>
-  </div>
-
-  <!-- RIGHT SIDE -->
-  <div class="flex w-full md:w-1/2 flex-col items-center justify-center px-12 text-[var(--groen-100)] min-h-[500px] md:h-full">
-    <div class="w-full md:w-1/2 md:self-start">
-      <iframe 
-        class="w-full h-[315px] md:h-[400px] lg:h-[500px]" 
-        src="https://www.youtube.com/embed/_PDOGfX_Rfs?si=3-_aHWzEHBO9YFmp?color=white&modestbranding=1" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-
-  <!-- Logo -->
-  <img 
-    src="RO_logo.svg" 
-    alt="Rijksoverheid Logo" 
-    class="absolute top-0 left-1/2 transform -translate-x-1/2 h-32 md:h-32
-           md:top-0
-           sm:bottom-4 sm:top-auto"
-    style="padding-bottom: 1.5rem;"
-  />
-
+    <button id="arrowDown" class="round-button" onclick="document.getElementById('section2').scrollIntoView({behavior:'smooth'})">↓</button>
 </section>
 
-<!-- Section 2: Voor wie is vlam.ai bedoeld? -->
-<section class="bg-[#EBF3E7] py-16">
-  <div class="max-w-[768px] mx-auto px-4">
-    <h2 class="text-[#39870C] text-5xl font-bold tracking-tight">Voor wie is DAWO bedoeld?</h2>
-    <p class="mt-4 text-xl leading-relaxed">
-      Digitaal Autonome Werkomgeving Overheid (DAWO) is een open source project gericht op de implementatie van een meer Europees-autonome werkomgeving naast Digitaal Werkomgeving Rijk (DWR).
-
-DAWO is een door SSC-ICT gesteunde oplossing gebaseerd op DAWN, het Nederlandse open source project op basis van Linux en containertechnologie. Hierdoor kunnen webapplicaties grootschalig, autonoom en efficiënt met behulp van overheidsdatacenters (ODC) worden ingezet. Zij is hierbij complementair aan bestaande dienstverleningen.
-
-DAWO is primair ontwikkeld voor de behoeften van organisaties binnen de publieke sector. DAWO sluit hierbij aan op de Nederlandse Digitaliseringsstrategie (NDS).
-
-DAWO werkt samen met lopende projecten en initiatieven binnen de overheid en staat open voor nieuwe samenwerkingsverbanden.
-    </p>
-  </div>
+<section id="section2">
+    <button id="arrowUp" class="round-button" onclick="document.getElementById('section1').scrollIntoView({behavior:'smooth'})">↑</button>
+    <div class="section-title">Wat is DAWO?</div>
+    <div class="section-text">
+        Digitaal Autonome Werkomgeving Overheid (DAWO) is een open source project gericht op de implementatie van een meer Europees-autonome werkomgeving naast Digitaal Werkomgeving Rijk (DWR). DAWO is een door SSC-ICT gesteunde oplossing gebaseerd op DAWN, het Nederlandse open source project op basis van Linux en containertechnologie. Hierdoor kunnen webapplicaties grootschalig, autonoom en efficiënt met behulp van overheidsdatacenters (ODC) worden ingezet. Zij is hierbij complementair aan bestaande dienstverleningen. DAWO is primair ontwikkeld voor de behoeften van organisaties binnen de publieke sector. DAWO sluit hierbij aan op de Nederlandse Digitaliseringsstrategie (NDS). DAWO werkt samen met lopende projecten en initiatieven binnen de overheid en staat open voor nieuwe samenwerkingsverbanden.
+    </div>
 </section>
 
-<!-- <script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const isMobile = window.innerWidth < 768;
-      const scrollDistance = isMobile ? 900 : 300;
 
-      window.scrollBy({
-        top: scrollDistance,
-        left: 0,
-        behavior: 'smooth'
-      });
-    }, 10);
-  });
-</script> -->
 
-</body>
-</html>
+</body></html>
